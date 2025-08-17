@@ -5,11 +5,11 @@
         
         Controller controller1 = new Controller();
 
-        for (int i = 0; i < controller1.GetPathFiles(controller1.GetLocalPath()).Length; i++)
+        for (int i = 0; i < controller1.GetPathFiles().Length; i++)
         {
-            Console.WriteLine(controller1.GetPathFiles(controller1.GetLocalPath())[i]);
+            Console.WriteLine(controller1.GetPathFiles()[i]);
         }
-        //Microsoft.VisualBasic.FileIO.FileSystem.RenameFile("111.txt","222.txt");
+        
 
         }
     

@@ -1,17 +1,20 @@
 class Controller
 {
-    
-    public string GetLocalPath()
+    string localPath;
+    public Controller()
     {
-        string LocalPath = Directory.GetCurrentDirectory();
-        
-        return LocalPath;
+        localPath = Directory.GetCurrentDirectory();
     }
 
-    public string[] GetPathFiles(string localPath)
-    {
 
+    public string[] GetPathFiles()
+    {
         string[] arrPath = Directory.GetFiles(localPath);
         return arrPath;
+    }
+
+    public void RenameFile(string nameFile, string startNumberFile)
+    {
+        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile("nameFile","newNameFile");
     }
 }
