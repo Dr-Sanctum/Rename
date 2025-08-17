@@ -5,12 +5,13 @@
         
         Controller controller1 = new Controller();
 
-        for (int i = 0; i < controller1.GetPathFiles().Length; i++)
-        {
-            Console.WriteLine(controller1.GetPathFiles()[i]);
-        }
-        
+        Console.WriteLine("123" + "12");
 
+        for (int i = 0; i < controller1.GetFiles().Length; i++)
+        {
+
+            //Console.WriteLine(controller1.GetFiles()[i]);
+        }
         }
     
 }

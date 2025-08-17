@@ -1,20 +1,22 @@
 class Controller
 {
     string localPath;
+    DirectoryInfo directoryInfo;
     public Controller()
     {
-        localPath = Directory.GetCurrentDirectory();
+        localPath = Directory.GetCurrentDirectory() + @"\folder";
+        directoryInfo = new DirectoryInfo(localPath);
     }
 
 
-    public string[] GetPathFiles()
+
+    public FileInfo[] GetFiles()
     {
-        string[] arrPath = Directory.GetFiles(localPath);
-        return arrPath;
+        return directoryInfo.GetFiles();
     }
 
-    public void RenameFile(string nameFile, string startNumberFile)
+    public void RenameFile(FileInfo nameFile, int startNumberFile)
     {
-        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile("nameFile","newNameFile");
+        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(nameFile.Name,startNumberFile.ToString());
     }
 }
