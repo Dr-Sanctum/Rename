@@ -17,6 +17,42 @@ class Controller
 
     public void RenameFile(FileInfo nameFile, int startNumberFile)
     {
-        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(nameFile.Name,startNumberFile.ToString());
+        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(nameFile.FullName, startNumberFile.ToString() + nameFile.Extension);
+    }
+
+    public void RenameFileAll()
+    {
+        FileInfo[] AllFiles = GetFiles();
+
+        foreach (var item in AllFiles)
+        {
+            Console.WriteLine(item);
+        }
+
+        Array.Sort(AllFiles, (f1, f2) => 
+        int.Parse(f1.Name.Replace(f1.Extension,""))
+        .CompareTo
+        (int.Parse(f2.Name.Replace(f2.Extension,""))));
+
+
+
+        Console.WriteLine("11111111111111111111111111111111111111111111111111111");
+
+       
+        foreach (var item in AllFiles)
+        {
+            Console.WriteLine(item);
+        }
+        /*
+        for (int i = 0; i < AllFiles.Length; i++)
+        {
+            bool temp = String.Equals(i.ToString() + AllFiles[i].Extension, AllFiles[i].Name);
+            if (temp)
+            {
+                continue;
+            }
+            RenameFile(AllFiles[i], i);
+        }
+        */
     }
 }
