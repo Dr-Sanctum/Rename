@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 class Controller
 {
     string localPath;
@@ -26,23 +28,16 @@ class Controller
 
         foreach (var item in AllFiles)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.Name);
         }
 
-        Array.Sort(AllFiles, (f1, f2) => 
-        int.Parse(f1.Name.Replace(f1.Extension,""))
-        .CompareTo
-        (int.Parse(f2.Name.Replace(f2.Extension,""))));
+        SortArrayFileInfoByName(AllFiles);
 
-
-
-        Console.WriteLine("11111111111111111111111111111111111111111111111111111");
-
-       
         foreach (var item in AllFiles)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.Name);
         }
+
         /*
         for (int i = 0; i < AllFiles.Length; i++)
         {
@@ -54,5 +49,13 @@ class Controller
             RenameFile(AllFiles[i], i);
         }
         */
+    }
+
+    public void SortArrayFileInfoByName(FileInfo[] arrayFileInfo)
+    {
+        Array.Sort(arrayFileInfo, (f1, f2) =>
+        int.Parse(f1.Name.Replace(f1.Extension, ""))
+        .CompareTo
+        (int.Parse(f2.Name.Replace(f2.Extension, ""))));
     }
 }
